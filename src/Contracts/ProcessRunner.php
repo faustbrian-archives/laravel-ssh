@@ -13,7 +13,10 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Contracts;
 
-interface Shell
+use KodeKeep\SecureShell\ShellResponse;
+use Symfony\Component\Process\Process;
+
+interface ProcessRunner
 {
-    //
+    public function run(Process $process): ShellResponse;
 }

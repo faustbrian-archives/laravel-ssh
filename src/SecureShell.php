@@ -13,38 +13,59 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell;
 
-use Facades\KodeKeep\SecureShell\ShellProcessRunner;
-use KodeKeep\SecureShell\Concerns\InteractsWithOptions;
-use KodeKeep\SecureShell\Contracts\Shell;
+use KodeKeep\SecureShell\Concerns\GeneratesCommands;
+use KodeKeep\SecureShell\Concerns\InteractsWithProcess;
+use KodeKeep\SecureShell\Concerns\InteractsWithServer;
+use KodeKeep\SecureShell\ProcessRunners\SymfonyProcessRunner;
 use Symfony\Component\Process\Process;
 
-class SecureShell implements Shell
+class SecureShell
 {
-    use InteractsWithOptions;
+    use GeneratesCommands;
+    use InteractsWithProcess;
+    use InteractsWithServer;
 
-    public function __construct(string $user, string $host, int $port = 22)
+    public function __construct(string $user, string $host, ?int $port = null)
     {
-        $this->useUser($user)->useHost($host)->usePort($port);
+        $this->user = $user;
+        $this->host = $host;
+        $this->port = $port;
+
+        $this->processConfiguration = fn (Process $process) => null;
+        $this->outputCallback = fn (string $type, int $line) => null;
+
+        $this->processRunner      = new SymfonyProcessRunner();
+        $this->secureShellCommand = new SecureShellCommand($this);
     }
 
     public function execute($command): ShellResponse
     {
-        $command = $this->getCommand($command);
-
-        $process = Process::fromShellCommandline($command);
-        $process->setTimeout($this->timeout);
-
-        return ShellProcessRunner::run($process);
+        return $this->run($this->getExecuteCommand($command));
     }
 
-    public function getCommand($commands): string
+    public function upload(string $sourcePath, string $destinationPath): ShellResponse
     {
-        $command = SecureShellCommand::forScript($this);
+        return $this->run($this->getUploadCommand($sourcePath, $destinationPath));
+    }
 
-        $commandString = implode(PHP_EOL, (array) $commands);
+    public function download(string $sourcePath, string $destinationPath): ShellResponse
+    {
+        return $this->run($this->getDownloadCommand($sourcePath, $destinationPath));
+    }
 
-        $delimiter = 'EOF-KK-SSH';
+    public function getTarget(): string
+    {
+        return "{$this->user}@{$this->host}";
+    }
 
-        return "{$command} 'bash -se' << \\$delimiter".PHP_EOL.$commandString.PHP_EOL.$delimiter;
+    private function run($command): ShellResponse
+    {
+        $process = Process::fromShellCommandline($command);
+
+        $process->setTimeout($this->timeout ?? 0);
+
+        ($this->processConfiguration)($process);
+
+        return $this->processRunner->run($process);
     }
 }

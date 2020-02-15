@@ -1,131 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1581399578">
-  <project timestamp="1581399578">
+<coverage generated="1581738675">
+  <project timestamp="1581738675">
     <package name="KodeKeep\SecureShell\Concerns">
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/Concerns/FakesResponse.php">
-        <class name="FakesResponse" namespace="KodeKeep\SecureShell\Concerns">
-          <metrics complexity="2" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/Concerns/GeneratesCommands.php">
+        <class name="GeneratesCommands" namespace="KodeKeep\SecureShell\Concerns">
+          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
         </class>
-        <metrics loc="37" ncloc="23" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <line num="18" type="method" name="getExecuteCommand" visibility="public" complexity="1" crap="1" count="5"/>
+        <line num="20" type="stmt" count="5"/>
+        <line num="22" type="stmt" count="5"/>
+        <line num="24" type="stmt" count="5"/>
+        <line num="26" type="stmt" count="5"/>
+        <line num="29" type="method" name="getUploadCommand" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="31" type="stmt" count="2"/>
+        <line num="34" type="method" name="getDownloadCommand" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="36" type="stmt" count="2"/>
+        <metrics loc="38" ncloc="30" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
       </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/Concerns/InteractsWithFiles.php">
-        <class name="InteractsWithFiles" namespace="KodeKeep\SecureShell\Concerns">
-          <metrics complexity="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/Concerns/InteractsWithProcess.php">
+        <class name="InteractsWithProcess" namespace="KodeKeep\SecureShell\Concerns">
+          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
         </class>
-        <line num="22" type="method" name="copy" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="24" type="stmt" count="1"/>
-        <line num="25" type="stmt" count="1"/>
-        <line num="27" type="stmt" count="1"/>
-        <metrics loc="29" ncloc="21" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="3" elements="4" coveredelements="4"/>
+        <line num="27" type="method" name="configureProcessRunner" visibility="public" complexity="1" crap="1" count="4"/>
+        <line num="29" type="stmt" count="4"/>
+        <line num="31" type="stmt" count="4"/>
+        <line num="34" type="method" name="configureProcess" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="41" type="method" name="onOutput" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <metrics loc="47" ncloc="39" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="9" coveredelements="9"/>
       </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/Concerns/InteractsWithOptions.php">
-        <class name="InteractsWithOptions" namespace="KodeKeep\SecureShell\Concerns">
-          <metrics complexity="11" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="33" coveredelements="33"/>
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/Concerns/InteractsWithServer.php">
+        <class name="InteractsWithServer" namespace="KodeKeep\SecureShell\Concerns">
+          <metrics complexity="13" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="35" coveredelements="35"/>
         </class>
-        <line num="34" type="method" name="useUser" visibility="public" complexity="1" crap="1" count="18"/>
-        <line num="36" type="stmt" count="18"/>
-        <line num="38" type="stmt" count="18"/>
-        <line num="41" type="method" name="useHost" visibility="public" complexity="1" crap="1" count="18"/>
-        <line num="43" type="stmt" count="18"/>
-        <line num="45" type="stmt" count="18"/>
-        <line num="48" type="method" name="usePort" visibility="public" complexity="1" crap="1" count="18"/>
-        <line num="50" type="stmt" count="18"/>
-        <line num="52" type="stmt" count="18"/>
-        <line num="55" type="method" name="usePrivateKey" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="57" type="stmt" count="1"/>
-        <line num="59" type="stmt" count="1"/>
-        <line num="62" type="method" name="useTimeout" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="64" type="stmt" count="1"/>
-        <line num="66" type="stmt" count="1"/>
-        <line num="69" type="method" name="enableStrictHostKeyChecking" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="71" type="stmt" count="1"/>
-        <line num="73" type="stmt" count="1"/>
-        <line num="76" type="method" name="disableStrictHostKeyChecking" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="78" type="stmt" count="1"/>
-        <line num="80" type="stmt" count="1"/>
-        <line num="83" type="method" name="enableBatchMode" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="85" type="stmt" count="1"/>
-        <line num="87" type="stmt" count="1"/>
-        <line num="90" type="method" name="disableBatchMode" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="92" type="stmt" count="1"/>
-        <line num="94" type="stmt" count="1"/>
-        <line num="97" type="method" name="enablePasswordAuthentication" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="99" type="stmt" count="1"/>
-        <line num="101" type="stmt" count="1"/>
-        <line num="104" type="method" name="disablePasswordAuthentication" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="106" type="stmt" count="1"/>
-        <line num="108" type="stmt" count="1"/>
-        <metrics loc="110" ncloc="102" classes="1" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="22" coveredstatements="22" elements="33" coveredelements="33"/>
+        <line num="36" type="method" name="useUser" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="38" type="stmt" count="1"/>
+        <line num="40" type="stmt" count="1"/>
+        <line num="43" type="method" name="useHost" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="47" type="stmt" count="1"/>
+        <line num="50" type="method" name="usePort" visibility="public" complexity="3" crap="3" count="3"/>
+        <line num="52" type="stmt" count="3"/>
+        <line num="53" type="stmt" count="1"/>
+        <line num="56" type="stmt" count="2"/>
+        <line num="58" type="stmt" count="2"/>
+        <line num="61" type="method" name="usePrivateKey" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="63" type="stmt" count="1"/>
+        <line num="65" type="stmt" count="1"/>
+        <line num="68" type="method" name="useTimeout" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="70" type="stmt" count="1"/>
+        <line num="72" type="stmt" count="1"/>
+        <line num="75" type="method" name="enableStrictHostKeyChecking" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="77" type="stmt" count="1"/>
+        <line num="79" type="stmt" count="1"/>
+        <line num="82" type="method" name="disableStrictHostKeyChecking" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="84" type="stmt" count="1"/>
+        <line num="86" type="stmt" count="1"/>
+        <line num="89" type="method" name="enableBatchMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="91" type="stmt" count="1"/>
+        <line num="93" type="stmt" count="1"/>
+        <line num="96" type="method" name="disableBatchMode" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="98" type="stmt" count="1"/>
+        <line num="100" type="stmt" count="1"/>
+        <line num="103" type="method" name="enablePasswordAuthentication" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="105" type="stmt" count="1"/>
+        <line num="107" type="stmt" count="1"/>
+        <line num="110" type="method" name="disablePasswordAuthentication" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="112" type="stmt" count="1"/>
+        <line num="114" type="stmt" count="1"/>
+        <metrics loc="116" ncloc="108" classes="1" methods="11" coveredmethods="11" conditionals="0" coveredconditionals="0" statements="24" coveredstatements="24" elements="35" coveredelements="35"/>
       </file>
     </package>
-    <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/Contracts/Shell.php">
-      <metrics loc="19" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/Contracts/ProcessRunner.php">
+      <metrics loc="22" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
-    <package name="KodeKeep\SecureShell">
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/SecureCopyShell.php">
-        <class name="KodeKeep\SecureShell\SecureCopyShell" namespace="KodeKeep\SecureShell">
-          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
+    <package name="KodeKeep\SecureShell\ProcessRunners">
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/ProcessRunners/MockProcessRunner.php">
+        <class name="KodeKeep\SecureShell\ProcessRunners\MockProcessRunner" namespace="KodeKeep\SecureShell\ProcessRunners">
+          <metrics complexity="6" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
         </class>
-        <line num="27" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
-        <line num="29" type="stmt" count="3"/>
-        <line num="30" type="stmt" count="3"/>
-        <line num="32" type="method" name="execute" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="29" type="method" name="run" visibility="public" complexity="2" crap="2" count="3"/>
+        <line num="31" type="stmt" count="3"/>
+        <line num="33" type="stmt" count="3"/>
         <line num="34" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <line num="37" type="stmt" count="1"/>
-        <line num="39" type="stmt" count="1"/>
-        <line num="42" type="method" name="getCommand" visibility="public" complexity="1" crap="1" count="2"/>
-        <line num="44" type="stmt" count="2"/>
-        <metrics loc="46" ncloc="38" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
-      </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/SecureShell.php">
-        <class name="KodeKeep\SecureShell\SecureShell" namespace="KodeKeep\SecureShell">
-          <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="13" coveredelements="13"/>
-        </class>
-        <line num="25" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="4"/>
-        <line num="27" type="stmt" count="4"/>
-        <line num="28" type="stmt" count="4"/>
-        <line num="30" type="method" name="execute" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="32" type="stmt" count="1"/>
-        <line num="34" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="37" type="stmt" count="1"/>
-        <line num="40" type="method" name="getCommand" visibility="public" complexity="1" crap="1" count="4"/>
-        <line num="42" type="stmt" count="4"/>
-        <line num="44" type="stmt" count="4"/>
-        <line num="46" type="stmt" count="4"/>
-        <line num="48" type="stmt" count="4"/>
-        <metrics loc="50" ncloc="42" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="13" coveredelements="13"/>
-      </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/SecureShellCommand.php">
-        <class name="KodeKeep\SecureShell\SecureShellCommand" namespace="KodeKeep\SecureShell">
-          <metrics complexity="7" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
-        </class>
-        <line num="20" type="method" name="forScript" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="22" type="stmt" count="1"/>
-        <line num="24" type="stmt" count="1"/>
-        <line num="25" type="stmt" count="1"/>
-        <line num="26" type="stmt" count="1"/>
-        <line num="30" type="method" name="forUpload" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="32" type="stmt" count="1"/>
-        <line num="34" type="stmt" count="1"/>
-        <line num="35" type="stmt" count="1"/>
-        <line num="36" type="stmt" count="1"/>
-        <line num="40" type="method" name="getSharedOptions" visibility="private" complexity="5" crap="5" count="2"/>
-        <line num="42" type="stmt" count="2"/>
+        <line num="37" type="stmt" count="2"/>
+        <line num="39" type="stmt" count="2"/>
+        <line num="42" type="method" name="mock" visibility="public" complexity="1" crap="1" count="2"/>
         <line num="44" type="stmt" count="2"/>
         <line num="45" type="stmt" count="2"/>
-        <line num="48" type="stmt" count="2"/>
-        <line num="49" type="stmt" count="2"/>
-        <line num="50" type="stmt" count="2"/>
-        <line num="53" type="stmt" count="2"/>
-        <line num="54" type="stmt" count="2"/>
-        <line num="57" type="stmt" count="2"/>
-        <line num="58" type="stmt" count="2"/>
-        <line num="61" type="stmt" count="2"/>
-        <metrics loc="63" ncloc="55" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="22" coveredelements="22"/>
+        <line num="47" type="method" name="mockException" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="49" type="stmt" count="1"/>
+        <line num="50" type="stmt" count="1"/>
+        <line num="52" type="method" name="getProcess" visibility="public" complexity="2" crap="2" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <metrics loc="56" ncloc="48" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="14" coveredelements="14"/>
       </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/SecureShellKey.php">
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/ProcessRunners/SymfonyProcessRunner.php">
+        <class name="KodeKeep\SecureShell\ProcessRunners\SymfonyProcessRunner" namespace="KodeKeep\SecureShell\ProcessRunners">
+          <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+        </class>
+        <line num="23" type="method" name="run" visibility="public" complexity="2" crap="2" count="2"/>
+        <line num="26" type="stmt" count="2"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="31" type="stmt" count="2"/>
+        <line num="33" type="stmt" count="2"/>
+        <line num="35" type="stmt" count="2"/>
+        <metrics loc="37" ncloc="29" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      </file>
+    </package>
+    <package name="KodeKeep\SecureShell">
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/SecureShell.php">
+        <class name="KodeKeep\SecureShell\SecureShell" namespace="KodeKeep\SecureShell">
+          <metrics complexity="7" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="22" coveredelements="22"/>
+        </class>
+        <line num="28" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="6"/>
+        <line num="30" type="stmt" count="6"/>
+        <line num="31" type="stmt" count="6"/>
+        <line num="32" type="stmt" count="6"/>
+        <line num="34" type="stmt" count="6"/>
+        <line num="35" type="stmt" count="6"/>
+        <line num="37" type="stmt" count="6"/>
+        <line num="38" type="stmt" count="6"/>
+        <line num="39" type="stmt" count="6"/>
+        <line num="41" type="method" name="execute" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="46" type="method" name="upload" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="48" type="stmt" count="1"/>
+        <line num="51" type="method" name="download" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="53" type="stmt" count="1"/>
+        <line num="56" type="method" name="getTarget" visibility="public" complexity="1" crap="1" count="6"/>
+        <line num="58" type="stmt" count="6"/>
+        <line num="61" type="method" name="run" visibility="private" complexity="1" crap="1" count="3"/>
+        <line num="63" type="stmt" count="3"/>
+        <line num="65" type="stmt" count="3"/>
+        <line num="67" type="stmt" count="3"/>
+        <line num="69" type="stmt" count="3"/>
+        <metrics loc="71" ncloc="63" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="16" coveredstatements="16" elements="22" coveredelements="22"/>
+      </file>
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/SecureShellCommand.php">
+        <class name="KodeKeep\SecureShell\SecureShellCommand" namespace="KodeKeep\SecureShell">
+          <metrics complexity="13" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="37" coveredelements="37"/>
+        </class>
+        <line num="20" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="3"/>
+        <line num="22" type="stmt" count="3"/>
+        <line num="23" type="stmt" count="3"/>
+        <line num="25" type="method" name="forScript" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="27" type="stmt" count="1"/>
+        <line num="28" type="stmt" count="1"/>
+        <line num="29" type="stmt" count="1"/>
+        <line num="33" type="method" name="forUpload" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="35" type="stmt" count="1"/>
+        <line num="36" type="stmt" count="1"/>
+        <line num="37" type="stmt" count="1"/>
+        <line num="41" type="method" name="forDownload" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="43" type="stmt" count="1"/>
+        <line num="44" type="stmt" count="1"/>
+        <line num="45" type="stmt" count="1"/>
+        <line num="49" type="method" name="getScriptFlags" visibility="private" complexity="2" crap="2" count="1"/>
+        <line num="51" type="stmt" count="1"/>
+        <line num="53" type="stmt" count="1"/>
+        <line num="54" type="stmt" count="1"/>
+        <line num="57" type="stmt" count="1"/>
+        <line num="60" type="method" name="getFileFlags" visibility="private" complexity="2" crap="2" count="2"/>
+        <line num="62" type="stmt" count="2"/>
+        <line num="64" type="stmt" count="2"/>
+        <line num="65" type="stmt" count="2"/>
+        <line num="68" type="stmt" count="2"/>
+        <line num="71" type="method" name="getCommonFlags" visibility="private" complexity="5" crap="5" count="3"/>
+        <line num="73" type="stmt" count="3"/>
+        <line num="75" type="stmt" count="3"/>
+        <line num="76" type="stmt" count="3"/>
+        <line num="79" type="stmt" count="3"/>
+        <line num="80" type="stmt" count="3"/>
+        <line num="81" type="stmt" count="3"/>
+        <line num="84" type="stmt" count="3"/>
+        <line num="85" type="stmt" count="3"/>
+        <line num="88" type="stmt" count="3"/>
+        <line num="89" type="stmt" count="3"/>
+        <line num="92" type="stmt" count="3"/>
+        <metrics loc="94" ncloc="86" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="30" elements="37" coveredelements="37"/>
+      </file>
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/SecureShellKey.php">
         <class name="KodeKeep\SecureShell\SecureShellKey" namespace="KodeKeep\SecureShell">
           <metrics complexity="5" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
         </class>
@@ -154,20 +213,7 @@
         <line num="62" type="stmt" count="1"/>
         <metrics loc="63" ncloc="55" classes="1" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="19" coveredstatements="19" elements="23" coveredelements="23"/>
       </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/ShellProcessRunner.php">
-        <class name="KodeKeep\SecureShell\ShellProcessRunner" namespace="KodeKeep\SecureShell">
-          <metrics complexity="2" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
-        </class>
-        <line num="24" type="method" name="run" visibility="public" complexity="2" crap="2" count="2"/>
-        <line num="27" type="stmt" count="2"/>
-        <line num="28" type="stmt" count="1"/>
-        <line num="29" type="stmt" count="1"/>
-        <line num="32" type="stmt" count="2"/>
-        <line num="34" type="stmt" count="2"/>
-        <line num="36" type="stmt" count="2"/>
-        <metrics loc="38" ncloc="30" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
-      </file>
-      <file name="/Users/dev/Code/kodekeep/laravel-ssh/src/ShellResponse.php">
+      <file name="/Users/brian/Code/kodekeep/laravel-ssh/src/ShellResponse.php">
         <class name="KodeKeep\SecureShell\ShellResponse" namespace="KodeKeep\SecureShell">
           <metrics complexity="3" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
         </class>
@@ -184,6 +230,6 @@
         <metrics loc="44" ncloc="36" classes="1" methods="3" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="10" coveredelements="10"/>
       </file>
     </package>
-    <metrics files="10" loc="499" ncloc="411" classes="8" methods="29" coveredmethods="29" conditionals="0" coveredconditionals="0" statements="93" coveredstatements="93" elements="122" coveredelements="122"/>
+    <metrics files="10" loc="588" ncloc="508" classes="9" methods="42" coveredmethods="42" conditionals="0" coveredconditionals="0" statements="124" coveredstatements="124" elements="166" coveredelements="166"/>
   </project>
 </coverage>

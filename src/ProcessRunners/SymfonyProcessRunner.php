@@ -11,16 +11,15 @@ declare(strict_types=1);
  * file that was distributed with this source code.
  */
 
-namespace KodeKeep\SecureShell;
+namespace KodeKeep\SecureShell\ProcessRunners;
 
-use KodeKeep\SecureShell\Concerns\FakesResponse;
+use KodeKeep\SecureShell\Contracts\ProcessRunner;
+use KodeKeep\SecureShell\ShellResponse;
 use Symfony\Component\Process\Exception\ProcessTimedOutException;
 use Symfony\Component\Process\Process;
 
-class ShellProcessRunner
+class SymfonyProcessRunner implements ProcessRunner
 {
-    use FakesResponse;
-
     public function run(Process $process): ShellResponse
     {
         try {

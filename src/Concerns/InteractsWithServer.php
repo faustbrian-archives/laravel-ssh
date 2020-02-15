@@ -13,13 +13,15 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Concerns;
 
-trait InteractsWithOptions
+use Exception;
+
+trait InteractsWithServer
 {
     public string $user;
 
     public string $host;
 
-    public int $port = 22;
+    public ?int $port;
 
     public ?string $pathToPrivateKey = null;
 
@@ -47,6 +49,10 @@ trait InteractsWithOptions
 
     public function usePort(int $port): self
     {
+        if ($port < 0 || $port > 65535) {
+            throw new Exception('Port must be between 0 and 65535.');
+        }
+
         $this->port = $port;
 
         return $this;

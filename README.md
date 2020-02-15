@@ -17,22 +17,14 @@ composer require kodekeep/laravel-ssh
 
 ## Usage
 
-### For Scripts
-
 ``` php
 $shell = new SecureShell('user', '127.0.0.1');
 
 $shell->execute('whoami');
-```
 
-### For Uploads
+$shell->upload('/home/root/source', '/home/root/target');
 
-``` php
-$shell = new SecureCopyShell('user', '127.0.0.1');
-
-$shell->copy('/home/root/source', '/home/root/target');
-
-$shell->execute();
+$shell->download('/home/root/source', '/home/root/target');
 ```
 
 ## Testing

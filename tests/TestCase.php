@@ -13,6 +13,9 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Tests;
 
+use KodeKeep\SecureShell\Contracts\ProcessRunner;
+use KodeKeep\SecureShell\ProcessRunners\MockProcessRunner;
+use KodeKeep\SecureShell\SecureShell;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 abstract class TestCase extends OrchestraTestCase
@@ -26,5 +29,15 @@ abstract class TestCase extends OrchestraTestCase
             'database' => ':memory:',
             'prefix'   => '',
         ]);
+    }
+
+    protected function configureProcessRunner(SecureShell $shell, int $exitCode, string $output, bool $timedOut): ProcessRunner
+    {
+        $runner = new MockProcessRunner();
+        $runner->mock($exitCode, $output, $timedOut);
+
+        $shell->configureProcessRunner($runner);
+
+        return $runner;
     }
 }

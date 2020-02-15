@@ -13,51 +13,82 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell;
 
-use KodeKeep\SecureShell\Contracts\Shell;
-
 class SecureShellCommand
 {
-    public static function forScript(Shell $shell): string
-    {
-        $sharedOptions = static::getSharedOptions($shell);
+    private SecureShell $shell;
 
+    public function __construct(SecureShell $shell)
+    {
+        $this->shell = $shell;
+    }
+
+    public function forScript(): string
+    {
         return sprintf(
-            'ssh %s -p %s %s',
-            $sharedOptions, $shell->port, "{$shell->user}@{$shell->host}",
+            'ssh %s %s',
+            $this->getScriptFlags(), $this->shell->getTarget(),
         );
     }
 
-    public static function forUpload(Shell $shell): string
+    public function forUpload(string $sourcePath, string $destinationPath): string
     {
-        $sharedOptions = static::getSharedOptions($shell);
-
         return sprintf(
-            'scp %s -P %s %s %s:%s',
-            $sharedOptions, $shell->port, "{$shell->user}@{$shell->host}", $shell->copySource, $shell->copyTarget
+            'scp %s %s %s:%s',
+            $this->getFileFlags(), $sourcePath, $this->shell->getTarget(), $destinationPath
         );
     }
 
-    private static function getSharedOptions(Shell $shell): string
+    public function forDownload(string $sourcePath, string $destinationPath): string
+    {
+        return sprintf(
+            'scp %s %s:%s %s',
+            $this->getFileFlags(), $this->shell->getTarget(), $sourcePath, $destinationPath
+        );
+    }
+
+    private function getScriptFlags(): string
+    {
+        $flags = $this->getCommonFlags();
+
+        if (! is_null($this->shell->port)) {
+            $flags[] = "-p {$this->shell->port}";
+        }
+
+        return implode(' ', $flags);
+    }
+
+    private function getFileFlags(): string
+    {
+        $flags = $this->getCommonFlags();
+
+        if (! is_null($this->shell->port)) {
+            $flags[] = "-p {$this->shell->port}";
+        }
+
+        return implode(' ', $flags);
+    }
+
+    private function getCommonFlags(): array
     {
         $result = [];
 
-        if ($shell->pathToPrivateKey) {
-            $result[] = "-i {$shell->pathToPrivateKey}";
+        if ($this->shell->pathToPrivateKey) {
+            $result[] = "-i {$this->shell->pathToPrivateKey}";
         }
 
-        if ($shell->enableStrictHostKeyChecking) {
+        if ($this->shell->enableStrictHostKeyChecking) {
             $result[] = '-o StrictHostKeyChecking=no';
             $result[] = '-o UserKnownHostsFile=/dev/null';
         }
 
-        if ($shell->enableBatchMode) {
+        if ($this->shell->enableBatchMode) {
             $result[] = '-o BatchMode=yes';
         }
 
-        if (! $shell->enablePasswordAuthentication) {
+        if (! $this->shell->enablePasswordAuthentication) {
             $result[] = '-o PasswordAuthentication=no';
         }
 
-        return implode(' ', $result);
+        return $result;
     }
 }

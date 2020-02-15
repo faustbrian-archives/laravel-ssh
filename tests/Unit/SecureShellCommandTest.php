@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Tests\Unit;
 
-use KodeKeep\SecureShell\SecureCopyShell;
 use KodeKeep\SecureShell\SecureShell;
 use KodeKeep\SecureShell\SecureShellCommand;
 use KodeKeep\SecureShell\Tests\TestCase;
@@ -29,19 +28,35 @@ class SecureShellCommandTest extends TestCase
     /** @test */
     public function can_create_a_command_for_a_script(): void
     {
-        $shell = new SecureShell('user', '127.0.0.1');
+        $shell = new SecureShell('user', '127.0.0.1', 22);
         $shell->usePrivateKey('/home/root/.ssh/id_rsa');
 
-        $this->assertMatchesSnapshot(SecureShellCommand::forScript($shell));
+        $command = new SecureShellCommand($shell);
+
+        $this->assertMatchesSnapshot($command->forScript());
     }
 
     /** @test */
     public function can_create_a_command_for_an_upload(): void
     {
-        $shell = new SecureCopyShell('user', '127.0.0.1');
+        $shell = new SecureShell('user', '127.0.0.1', 22);
         $shell->usePrivateKey('/home/root/.ssh/id_rsa');
-        $shell->copy('/home/root/source', '/home/root/target');
+        $shell->upload('/home/root/source', '/home/root/target');
 
-        $this->assertMatchesSnapshot(SecureShellCommand::forUpload($shell));
+        $command = new SecureShellCommand($shell);
+
+        $this->assertMatchesSnapshot($command->forUpload('/home/root/source', '/home/root/target'));
+    }
+
+    /** @test */
+    public function can_create_a_command_for_a_download(): void
+    {
+        $shell = new SecureShell('user', '127.0.0.1', 22);
+        $shell->usePrivateKey('/home/root/.ssh/id_rsa');
+        $shell->download('/home/root/source', '/home/root/target');
+
+        $command = new SecureShellCommand($shell);
+
+        $this->assertMatchesSnapshot($command->forDownload('/home/root/source', '/home/root/target'));
     }
 }

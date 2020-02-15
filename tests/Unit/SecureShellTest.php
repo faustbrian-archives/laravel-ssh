@@ -13,7 +13,6 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Tests\Unit;
 
-use Facades\KodeKeep\SecureShell\ShellProcessRunner;
 use KodeKeep\SecureShell\SecureShell;
 use KodeKeep\SecureShell\Tests\TestCase;
 use Spatie\Snapshots\MatchesSnapshots;
@@ -37,7 +36,7 @@ class SecureShellTest extends TestCase
     /** @test */
     public function can_set_the_port_via_the_constructor(): void
     {
-        $command = (new SecureShell('user', 'example.com', 123))->getCommand('whoami');
+        $command = (new SecureShell('user', 'example.com', 123))->getExecuteCommand('whoami');
 
         $this->assertMatchesSnapshot($command);
     }
@@ -45,7 +44,7 @@ class SecureShellTest extends TestCase
     /** @test */
     public function can_execute_a_command(): void
     {
-        ShellProcessRunner::mock(0, 'root', false);
+        $this->configureProcessRunner($this->subject, 0, 'root', false);
 
         $command = $this->subject->execute('whoami');
 
@@ -57,7 +56,7 @@ class SecureShellTest extends TestCase
     /** @test */
     public function can_generate_a_command(): void
     {
-        $command = $this->subject->getCommand('whoami');
+        $command = $this->subject->getExecuteCommand('whoami');
 
         $this->assertMatchesSnapshot($command);
     }
@@ -65,8 +64,32 @@ class SecureShellTest extends TestCase
     /** @test */
     public function can_generate_multiple_commands(): void
     {
-        $command = $this->subject->getCommand(['whoami', 'cd /var/log']);
+        $command = $this->subject->getExecuteCommand(['whoami', 'cd /var/log']);
 
         $this->assertMatchesSnapshot($command);
+    }
+
+    /** @test */
+    public function can_upload_a_file(): void
+    {
+        $this->configureProcessRunner($this->subject, 0, 'root', false);
+
+        $command = $this->subject->upload('/home/root/source', '/home/root/target');
+
+        $this->assertSame(0, $command->exitCode);
+        $this->assertSame('root', $command->output);
+        $this->assertFalse($command->timedOut);
+    }
+
+    /** @test */
+    public function can_download_a_file(): void
+    {
+        $this->configureProcessRunner($this->subject, 0, 'root', false);
+
+        $command = $this->subject->download('/home/root/source', '/home/root/target');
+
+        $this->assertSame(0, $command->exitCode);
+        $this->assertSame('root', $command->output);
+        $this->assertFalse($command->timedOut);
     }
 }
