@@ -67,4 +67,15 @@ class InteractsWithProcessTest extends TestCase
 
         $this->assertSame($callback, $this->subject->outputCallback);
     }
+
+    /** @test */
+    public function can_use_working_directory(): void
+    {
+        $this->assertNull($this->subject->workingDirectory);
+
+        $command = $this->subject->useWorkingDirectory('/home/root')->getExecuteCommand('whoami');
+
+        $this->assertSame('/home/root', $this->subject->workingDirectory);
+        $this->assertMatchesSnapshot($command);
+    }
 }

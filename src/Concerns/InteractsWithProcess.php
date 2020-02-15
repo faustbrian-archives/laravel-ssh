@@ -24,6 +24,8 @@ trait InteractsWithProcess
 
     public Closure $outputCallback;
 
+    public ?string $workingDirectory = null;
+
     public function configureProcessRunner(ProcessRunner $processRunner): self
     {
         $this->processRunner = $processRunner;
@@ -41,6 +43,13 @@ trait InteractsWithProcess
     public function whenOutput(Closure $outputCallback): self
     {
         $this->outputCallback = $outputCallback;
+
+        return $this;
+    }
+
+    public function useWorkingDirectory(string $workingDirectory): self
+    {
+        $this->workingDirectory = $workingDirectory;
 
         return $this;
     }

@@ -59,7 +59,7 @@ class SecureShell
 
     private function run($command): ShellResponse
     {
-        $process = Process::fromShellCommandline($command);
+        $process = Process::fromShellCommandline($command, $this->workingDirectory);
 
         $process->setTimeout($this->timeout ?? 0);
 
