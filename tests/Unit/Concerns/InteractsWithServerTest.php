@@ -159,4 +159,40 @@ class InteractsWithServerTest extends TestCase
         $this->assertFalse($this->subject->enablePasswordAuthentication);
         $this->assertMatchesSnapshot($command);
     }
+
+    /** @test */
+    public function can_enable_recursive_copying(): void
+    {
+        $command = $this->subject->enableRecursiveCopying()->getExecuteCommand('whoami');
+
+        $this->assertTrue($this->subject->enableRecursiveCopying);
+        $this->assertMatchesSnapshot($command);
+    }
+
+    /** @test */
+    public function can_disable_recursive_copying(): void
+    {
+        $command = $this->subject->disableRecursiveCopying()->getExecuteCommand('whoami');
+
+        $this->assertFalse($this->subject->enableRecursiveCopying);
+        $this->assertMatchesSnapshot($command);
+    }
+
+    /** @test */
+    public function can_enable_rsync(): void
+    {
+        $command = $this->subject->enableRsync()->getExecuteCommand('whoami');
+
+        $this->assertTrue($this->subject->enableRsync);
+        $this->assertMatchesSnapshot($command);
+    }
+
+    /** @test */
+    public function can_disable_rsync(): void
+    {
+        $command = $this->subject->disableRsync()->getExecuteCommand('whoami');
+
+        $this->assertFalse($this->subject->enableRsync);
+        $this->assertMatchesSnapshot($command);
+    }
 }

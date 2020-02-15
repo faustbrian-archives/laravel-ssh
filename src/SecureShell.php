@@ -32,10 +32,9 @@ class SecureShell
         $this->port = $port;
 
         $this->processConfiguration = fn (Process $process) => null;
-        $this->outputCallback = fn (string $type, int $line) => null;
+        $this->outputCallback       = fn (string $type, int $line) => null;
 
-        $this->processRunner      = new SymfonyProcessRunner();
-        $this->secureShellCommand = new SecureShellCommand($this);
+        $this->processRunner = new SymfonyProcessRunner();
     }
 
     public function execute($command): ShellResponse

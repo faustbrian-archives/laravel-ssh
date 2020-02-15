@@ -13,11 +13,17 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Concerns;
 
+use KodeKeep\SecureShell\CommandBuilders\RsyncCommandBuilder;
+use KodeKeep\SecureShell\CommandBuilders\ScpCommandBuilder;
+use KodeKeep\SecureShell\CommandBuilders\SshCommandBuilder;
+
 trait GeneratesCommands
 {
     public function getExecuteCommand($commands): string
     {
-        $command = $this->secureShellCommand->forScript();
+        $commandBuilder = new SshCommandBuilder($this);
+
+        $command = $commandBuilder->forScript();
 
         $commandString = implode(PHP_EOL, (array) $commands);
 
@@ -28,11 +34,16 @@ trait GeneratesCommands
 
     public function getUploadCommand(string $sourcePath, string $destinationPath): string
     {
-        return $this->secureShellCommand->forUpload($sourcePath, $destinationPath);
+        return $this->getFileCommandBuilder()->forUpload($sourcePath, $destinationPath);
     }
 
     public function getDownloadCommand(string $sourcePath, string $destinationPath): string
     {
-        return $this->secureShellCommand->forDownload($sourcePath, $destinationPath);
+        return $this->getFileCommandBuilder()->forDownload($sourcePath, $destinationPath);
+    }
+
+    private function getFileCommandBuilder()
+    {
+        return $this->enableRsync ? new RsyncCommandBuilder($this) : new ScpCommandBuilder($this);
     }
 }

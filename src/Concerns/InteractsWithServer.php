@@ -33,6 +33,10 @@ trait InteractsWithServer
 
     public bool $enablePasswordAuthentication = false;
 
+    public bool $enableRecursiveCopying = false;
+
+    public bool $enableRsync = false;
+
     public function useUser(string $user): self
     {
         $this->user = $user;
@@ -110,6 +114,34 @@ trait InteractsWithServer
     public function disablePasswordAuthentication(): self
     {
         $this->enablePasswordAuthentication = false;
+
+        return $this;
+    }
+
+    public function enableRecursiveCopying(): self
+    {
+        $this->enableRecursiveCopying = true;
+
+        return $this;
+    }
+
+    public function disableRecursiveCopying(): self
+    {
+        $this->enableRecursiveCopying = false;
+
+        return $this;
+    }
+
+    public function enableRsync(): self
+    {
+        $this->enableRsync = true;
+
+        return $this;
+    }
+
+    public function disableRsync(): self
+    {
+        $this->enableRsync = false;
 
         return $this;
     }

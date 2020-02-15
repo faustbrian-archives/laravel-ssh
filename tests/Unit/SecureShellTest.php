@@ -74,7 +74,7 @@ class SecureShellTest extends TestCase
     {
         $this->configureProcessRunner($this->subject, 0, 'root', false);
 
-        $command = $this->subject->upload('/home/root/source', '/home/root/target');
+        $command = $this->subject->upload('/home/root/source.txt', '/home/root/target.txt');
 
         $this->assertSame(0, $command->exitCode);
         $this->assertSame('root', $command->output);
@@ -86,7 +86,31 @@ class SecureShellTest extends TestCase
     {
         $this->configureProcessRunner($this->subject, 0, 'root', false);
 
-        $command = $this->subject->download('/home/root/source', '/home/root/target');
+        $command = $this->subject->download('/home/root/source.txt', '/home/root/target.txt');
+
+        $this->assertSame(0, $command->exitCode);
+        $this->assertSame('root', $command->output);
+        $this->assertFalse($command->timedOut);
+    }
+
+    /** @test */
+    public function can_upload_a_folder(): void
+    {
+        $this->configureProcessRunner($this->subject, 0, 'root', false);
+
+        $command = $this->subject->upload('/home/root/source', '/home/root/target');
+
+        $this->assertSame(0, $command->exitCode);
+        $this->assertSame('root', $command->output);
+        $this->assertFalse($command->timedOut);
+    }
+
+    /** @test */
+    public function can_download_a_folder(): void
+    {
+        $this->configureProcessRunner($this->subject, 0, 'root', false);
+
+        $command = $this->subject->enableRecursiveCopying()->download('/home/root/source', '/home/root/target');
 
         $this->assertSame(0, $command->exitCode);
         $this->assertSame('root', $command->output);
