@@ -1,0 +1,4 @@
+ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o PasswordAuthentication=no user@example.com 'bash -se' << \EOF-KK-SSH
+whoami
+cd /var/log
+EOF-KK-SSH

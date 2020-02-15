@@ -1,0 +1,1 @@
+scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o BatchMode=yes -o PasswordAuthentication=no user@127.0.0.1:source target
