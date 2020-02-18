@@ -1,13 +1,13 @@
 # Laravel Secure Shell
 
-[![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/kodekeep/laravel-ssh/run-tests?label=tests)](https://github.com/kodekeep/laravel-ssh/actions?query=workflow%3Arun-tests+branch%3Amaster)
-[![Code Coverage](https://badgen.net/codecov/c/github/kodekeep/laravel-ssh)](https://codecov.io/gh/kodekeep/laravel-ssh)
-[![Minimum PHP Version](https://badgen.net/packagist/php/kodekeep/laravel-ssh)](https://packagist.org/packages/kodekeep/laravel-ssh)
 [![Latest Version](https://badgen.net/packagist/v/kodekeep/laravel-ssh)](https://packagist.org/packages/kodekeep/laravel-ssh)
+[![Software License](https://badgen.net/packagist/license/kodekeep/laravel-ssh)](https://packagist.org/packages/kodekeep/laravel-ssh)
+[![Build Status](https://img.shields.io/github/workflow/status/kodekeep/laravel-ssh/run-tests?label=tests)](https://github.com/kodekeep/laravel-ssh/actions?query=workflow%3Arun-tests+branch%3Amaster)
+[![Coverage Status](https://badgen.net/codeclimate/coverage/kodekeep/laravel-ssh)](https://codeclimate.com/github/kodekeep/laravel-ssh)
+[![Quality Score](https://badgen.net/codeclimate/maintainability/kodekeep/laravel-ssh)](https://codeclimate.com/github/kodekeep/laravel-ssh)
 [![Total Downloads](https://badgen.net/packagist/dt/kodekeep/laravel-ssh)](https://packagist.org/packages/kodekeep/laravel-ssh)
-[![License](https://badgen.net/packagist/license/kodekeep/laravel-ssh)](https://packagist.org/packages/kodekeep/laravel-ssh)
 
-> SSH/SCP Utilities for Laravel.
+This package was created by, and is maintained by [Brian Faust](https://github.com/faustbrian), and provides SSH, SCP and RSync capabilities for Laravel.
 
 ## Installation
 
@@ -49,6 +49,10 @@ If you discover a security vulnerability within this package, please send an e-m
 
 This project exists thanks to all the people who [contribute](../../contributors).
 
+## Support Us
+
+We invest a lot of resources into creating and maintaining our packages. You can support us and the development through [GitHub Sponsors](https://github.com/sponsors/faustbrian).
+
 ## License
 
-Mozilla Public License Version 2.0 (MPL-2.0). Please see [License File](LICENSE.md) for more information.
+Laravel Secure Shell is an open-sourced software licensed under the [MPL-2.0](LICENSE.md).
