@@ -42,6 +42,14 @@ class SecureShellTest extends TestCase
     }
 
     /** @test */
+    public function can_set_the_port_via_the_new(): void
+    {
+        $command = SecureShell::new('user', 'example.com', 123)->getExecuteCommand('whoami');
+
+        $this->assertMatchesSnapshot($command);
+    }
+
+    /** @test */
     public function can_execute_a_command(): void
     {
         $this->configureProcessRunner($this->subject, 0, 'root', false);

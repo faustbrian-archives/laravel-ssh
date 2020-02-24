@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell;
 
-use Symfony\Component\Process\Process;
+use KodeKeep\ProcessRunner\ProcessRunners\ProcessRunner;
 use KodeKeep\ProcessRunner\ShellResponse;
 use KodeKeep\SecureShell\Concerns\GeneratesCommands;
-use KodeKeep\SecureShell\Concerns\InteractsWithServer;
 use KodeKeep\SecureShell\Concerns\InteractsWithProcess;
-use KodeKeep\ProcessRunner\ProcessRunners\ProcessRunner;
+use KodeKeep\SecureShell\Concerns\InteractsWithServer;
+use Symfony\Component\Process\Process;
 
 class SecureShell
 {
@@ -36,6 +36,11 @@ class SecureShell
         $this->outputCallback       = fn (string $type, int $line) => null;
 
         $this->processRunner = new ProcessRunner();
+    }
+
+    public static function new(string $user, string $host, ?int $port = null)
+    {
+        return new static($user, $host, $port);
     }
 
     public function execute($command): ShellResponse
