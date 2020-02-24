@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "kodekeep/process-runner": "^1.0"
+        "kodekeep/process-runner": "^1.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",

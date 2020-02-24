@@ -18,7 +18,7 @@ use KodeKeep\ProcessRunner\ShellResponse;
 use KodeKeep\SecureShell\Concerns\GeneratesCommands;
 use KodeKeep\SecureShell\Concerns\InteractsWithServer;
 use KodeKeep\SecureShell\Concerns\InteractsWithProcess;
-use KodeKeep\ProcessRunner\ProcessRunners\SymfonyProcessRunner;
+use KodeKeep\ProcessRunner\ProcessRunners\ProcessRunner;
 
 class SecureShell
 {
@@ -35,7 +35,7 @@ class SecureShell
         $this->processConfiguration = fn (Process $process) => null;
         $this->outputCallback       = fn (string $type, int $line) => null;
 
-        $this->processRunner = new SymfonyProcessRunner();
+        $this->processRunner = new ProcessRunner();
     }
 
     public function execute($command): ShellResponse

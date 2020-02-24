@@ -18,7 +18,7 @@ use Spatie\Snapshots\MatchesSnapshots;
 use Symfony\Component\Process\Process;
 use KodeKeep\SecureShell\Tests\TestCase;
 use KodeKeep\ProcessRunner\ProcessRunners\MockProcessRunner;
-use KodeKeep\ProcessRunner\ProcessRunners\SymfonyProcessRunner;
+use KodeKeep\ProcessRunner\ProcessRunners\ProcessRunner;
 
 /**
  * @covers \KodeKeep\SecureShell\Concerns\InteractsWithProcess
@@ -39,7 +39,7 @@ class InteractsWithProcessTest extends TestCase
     /** @test */
     public function it_can_configure_the_process_runner(): void
     {
-        $this->assertInstanceOf(SymfonyProcessRunner::class, $this->subject->processRunner);
+        $this->assertInstanceOf(ProcessRunner::class, $this->subject->processRunner);
 
         $this->subject->configureProcessRunner(new MockProcessRunner());
 
