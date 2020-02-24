@@ -13,10 +13,10 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Tests;
 
-use KodeKeep\SecureShell\Contracts\ProcessRunner;
-use KodeKeep\SecureShell\ProcessRunners\MockProcessRunner;
 use KodeKeep\SecureShell\SecureShell;
+use KodeKeep\ProcessRunner\Contracts\ProcessRunner;
 use Orchestra\Testbench\TestCase as OrchestraTestCase;
+use KodeKeep\ProcessRunner\ProcessRunners\MockProcessRunner;
 
 abstract class TestCase extends OrchestraTestCase
 {

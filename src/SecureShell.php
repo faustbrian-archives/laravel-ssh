@@ -13,11 +13,12 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell;
 
-use KodeKeep\SecureShell\Concerns\GeneratesCommands;
-use KodeKeep\SecureShell\Concerns\InteractsWithProcess;
-use KodeKeep\SecureShell\Concerns\InteractsWithServer;
-use KodeKeep\SecureShell\ProcessRunners\SymfonyProcessRunner;
 use Symfony\Component\Process\Process;
+use KodeKeep\ProcessRunner\ShellResponse;
+use KodeKeep\SecureShell\Concerns\GeneratesCommands;
+use KodeKeep\SecureShell\Concerns\InteractsWithServer;
+use KodeKeep\SecureShell\Concerns\InteractsWithProcess;
+use KodeKeep\ProcessRunner\ProcessRunners\SymfonyProcessRunner;
 
 class SecureShell
 {

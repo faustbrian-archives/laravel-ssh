@@ -14,7 +14,7 @@ declare(strict_types=1);
 namespace KodeKeep\SecureShell\Concerns;
 
 use Closure;
-use KodeKeep\SecureShell\Contracts\ProcessRunner;
+use KodeKeep\ProcessRunner\Contracts\ProcessRunner;
 
 trait InteractsWithProcess
 {

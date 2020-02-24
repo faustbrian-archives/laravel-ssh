@@ -13,12 +13,12 @@ declare(strict_types=1);
 
 namespace KodeKeep\SecureShell\Tests\Unit\Concerns;
 
-use KodeKeep\SecureShell\ProcessRunners\MockProcessRunner;
-use KodeKeep\SecureShell\ProcessRunners\SymfonyProcessRunner;
 use KodeKeep\SecureShell\SecureShell;
-use KodeKeep\SecureShell\Tests\TestCase;
 use Spatie\Snapshots\MatchesSnapshots;
 use Symfony\Component\Process\Process;
+use KodeKeep\SecureShell\Tests\TestCase;
+use KodeKeep\ProcessRunner\ProcessRunners\MockProcessRunner;
+use KodeKeep\ProcessRunner\ProcessRunners\SymfonyProcessRunner;
 
 /**
  * @covers \KodeKeep\SecureShell\Concerns\InteractsWithProcess
