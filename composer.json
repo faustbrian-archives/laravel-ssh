@@ -44,16 +44,6 @@
     "config": {
         "sort-packages": true
     },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "KodeKeep\\SecureShell\\SecureShellServiceProvider"
-            ],
-            "aliases": {
-                "SecureShell": "KodeKeep\\SecureShell\\SecureShellFacade"
-            }
-        }
-    },
     "minimum-stability": "dev",
     "prefer-stable": true
 }
